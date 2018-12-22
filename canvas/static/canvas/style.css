@@ -9,7 +9,7 @@ nav {
     left: 0;
     width: 100%;
     z-index: 9999; /* keeps the navbar in front also while typing in textarea */
-    background-color: lightgray;
+    background-color: whitesmoke;
     border-bottom: 1px solid black;
     display: flex;
     justify-content: space-around;
@@ -28,4 +28,12 @@ nav {
 .done {
     background-color: aquamarine;
     color: darkgreen;
+}
+
+textarea {
+    border: none;
+}
+
+textarea:focus {
+    outline: none;
 }
