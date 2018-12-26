@@ -9,11 +9,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@+_#7)_4#!63#ftr9+s6hx!4=j4!5w@l0u1u#*__^sq(vq3j=2'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+if DEBUG:
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = '@+_#7)_4#!63#ftr9+s6hx!4=j4!5w@l0u1u#*__^sq(vq3j=2'
+else:
+    SECRET_KEY = os.environ['DJANGO_KEY']  # fetches from heroku env vars
+
 
 ALLOWED_HOSTS = []
 
