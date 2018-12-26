@@ -9,10 +9,13 @@
 
     <div class="padding"></div>
 
-    <form action="" method="post">
-        <textarea id="canvas" autofocus></textarea>
-        <input type="submit" id="check-words">
+    <form action="canvas" method="post">
+        {% csrf_token %}
+        {{ form.text }}
+        <input type="submit" id="finished">
     </form>
+
+    <p>{{ note }}</p>
 
     <script>
         // feedback logic to count the remaining words while typing
@@ -25,11 +28,13 @@
                 let wordCount = totalWords - (words.length - 1);  // because then the count works
                 $('#word-count').text("Words remaining: " + wordCount)  // update the word count in the nav bar
                 if (wordCount <= 0) {
-                    $('nav').addClass("done");
-                    $('#message').text("Well done!")
+                    $('nav').addClass("nav-done");
+                    $('#message').text("Well done!");
+                    $('#finished').css('visibility', 'visible');
                 } else {
                     $('nav').removeClass("done");
-                    $('#message').text("")
+                    $('#message').text("");
+                    $('#finished').css('visibility', 'hidden');
                 }
             }
         });
