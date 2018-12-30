@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 if DEBUG:
     # SECURITY WARNING: keep the secret key used in production secret!
@@ -102,7 +102,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# TODO: for actual users around the world, introduce a way to set (and reset) their time zone
+# TODO: potentially need to store the tzinfo (or location) for each Text() object - if users move around
+TIME_ZONE = 'US/Mountain'  # change this when changing time zones
 
 USE_I18N = True
 
