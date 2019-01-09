@@ -9,7 +9,7 @@ class Text(models.Model):
     text = models.TextField(help_text="Here goes the content of your mind today.")
 
     def __str__(self):
-        return "{0} - {1}...".format(self.pub_date.strftime('%Y-%m-%d (%a) %H:%M'), self.text[:30])
+        return "{0} - {1}... (2)".format(self.pub_date.strftime('%Y-%m-%d (%a) %H:%M'), self.text[:30], self.author)
 
     class Meta:
         ordering = ['-pub_date']
