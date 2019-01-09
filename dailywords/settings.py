@@ -127,7 +127,7 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
+LOGIN_URL = '/login'  # to override the default /accounts/login
 LOGIN_REDIRECT_URL = '/canvas'
 
 # Activate Django-Heroku.
