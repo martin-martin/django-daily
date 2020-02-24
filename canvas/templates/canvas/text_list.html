@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>750 Words Entries</h1>
+    {% for words in object_list %}
+        <p>{{ words.author }} - {{ words.pub_date }}</p>
+        <p>{{ words.text }}</p>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
