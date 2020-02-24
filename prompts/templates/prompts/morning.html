@@ -4,8 +4,10 @@
 
     <h1>Morning Pages</h1>
     <div class="morning">
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-    <input type="submit" value="Save">
+        <form method="post">{% csrf_token %}
+            {{ form.as_p }}
+        <input type="submit" value="Save">
+        </form>
     </div>
+
 {% endblock %}

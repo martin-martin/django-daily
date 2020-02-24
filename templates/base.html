@@ -14,5 +14,12 @@
     {% block content %}
 
     {% endblock %}
+
+    <footer>
+        <a href="{% url 'prompts:morning' %}">Morning Pages</a>
+        <a href="{% url 'canvas:canvas' %}">750 Words</a>
+        <a href="{% url 'prompts:evening' %}">Evening Pages</a>
+    </footer>
+
 </body>
 </html>

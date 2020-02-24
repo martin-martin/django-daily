@@ -53,3 +53,8 @@ div.morning > form > p > textarea,
 div.evening > form > p > textarea {
     border: 1px solid lightgray;
 }
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}

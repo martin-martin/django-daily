@@ -5,7 +5,9 @@ from .models import Text
 from .views import write
 
 
+app_name = 'canvas'
+
 urlpatterns = [
-    path('', write),  # could be 'canvas/'
+    path('', write, name='canvas'),  # could be 'canvas/'
     path('all/', login_required(ListView.as_view(model=Text))),
 ]
