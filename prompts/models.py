@@ -10,7 +10,7 @@ class Morning(models.Model):
     affirmation = models.TextField(verbose_name='Daily affirmations: I am...')
 
     def __str__(self):
-        return "{0} m [{1}]".format(self.pub_date.strftime('%Y-%m-%d'), self.author[:1])
+        return "{0} m [{1}]".format(self.pub_date.strftime('%Y-%m-%d'), self.author.username[:1])
 
     class Meta:
         ordering = ['-pub_date']
@@ -24,7 +24,7 @@ class Evening(models.Model):
     plan = models.TextField(verbose_name="MIT and other plans for tomorrow:")
 
     def __str__(self):
-        return "{0} e [{1}]".format(self.pub_date.strftime('%Y-%m-%d'), self.author[:1])
+        return "{0} e [{1}]".format(self.pub_date.strftime('%Y-%m-%d'), self.author.username[:1])
 
     class Meta:
         ordering = ['-pub_date']
