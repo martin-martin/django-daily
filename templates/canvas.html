@@ -18,6 +18,15 @@
     <p>{{ note }}</p>
 
     <script>
+        // avoid losing written text through accidentally navigating away
+        window.addEventListener('beforeunload', function (e) {
+            // Cancel the event
+            e.preventDefault();
+            // Chrome requires returnValue to be set
+            e.returnValue = '';
+        });
+
+
         // feedback logic to count the remaining words while typing
 
         let totalWords = 750;
