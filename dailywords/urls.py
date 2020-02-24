@@ -19,6 +19,7 @@ from django.urls import path, include
 # TODO: add a route to register new users
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('django.contrib.auth.urls')),
-    path('canvas', include('canvas.urls')),
+    path('', include('django.contrib.auth.urls')), # TODO: refactor to free up the empty base URL
+    path('canvas/', include('canvas.urls')),
+    path('write/', include('prompts.urls')),
 ]

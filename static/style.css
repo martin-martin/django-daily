@@ -48,3 +48,8 @@ textarea:focus {
     z-index: 9999;
     visibility: hidden;
 }
+
+div.morning > form > p > textarea,
+div.evening > form > p > textarea {
+    border: 1px solid lightgray;
+}
