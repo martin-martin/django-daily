@@ -110,7 +110,7 @@ LANGUAGE_CODE = 'en-us'
 
 # TODO: for actual users around the world, introduce a way to set (and reset) their time zone
 # TODO: potentially need to store the tzinfo (or location) for each Text() object - if users move around
-TIME_ZONE = 'US/Mountain'  # change this when changing time zones
+TIME_ZONE = 'Europe/Kiev'  # change this when changing time zones
 
 USE_I18N = True
 
