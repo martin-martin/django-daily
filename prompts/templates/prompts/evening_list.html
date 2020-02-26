@@ -2,7 +2,10 @@
 
 {% block content %}
 
-    <h1>Evening Pages</h1>
+    <div class="list-nav">
+        <h1>Evening Pages</h1>
+        <a href="{% url 'prompts:morning_list' %}">Morning Entries</a>
+    </div>
     {% for evening_page in object_list %}
         <p>{{ evening_page.pub_date }}</p>
         <p><strong>3 amazing things that happened today:</strong></p>
