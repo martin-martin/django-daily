@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load canvas_extras %}
 
 {% block content %}
     <nav>
@@ -9,9 +10,9 @@
 
     <div class="padding"></div>
 
-    <form action="canvas" method="post">
+    <form method="post">
         {% csrf_token %}
-        {{ form.text }}
+        {{ form.text|add_id:"canvas" }}
         <input type="submit" id="finished">
     </form>
 
@@ -35,7 +36,7 @@
             if (event.keyCode == 32 || event.keyCode == 13) {  // on spacebar or enter press event
                 let words = $('#canvas').val().split(/\n| /);  // regex for newlines OR whitespace chars
                 let wordCount = totalWords - (words.length - 1);  // because then the count works
-                $('#word-count').text("Words remaining: " + wordCount)  // update the word count in the nav bar
+                $('#word-count').text("Words remaining: " + wordCount); // update the word count in the nav bar
                 if (wordCount <= 0) {
                     $('nav').addClass("nav-done");
                     $('#message').text("Well done!");

@@ -1,20 +1,18 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .forms import TextForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
+from django.views.generic import CreateView
+#from .forms import TextForm  # could use this instead with a FormView
+from .models import Text
 
 
-@login_required
-def write(request):
-    if request.method == 'POST':
-        form = TextForm(request.POST)
-        if not form.is_valid():
-            return render(request, 'canvas/canvas.html', {'note': 'error', 'form': form})
-        else:
-            text = form.save(commit=False)
-            text.author = request.user
-            text.save()
-            return redirect(write)  # this is a way to resolve NoReverseMatch
-            # TODO: add feedback that the entry was successfully saved
-    else:
-        form = TextForm(None)
-    return render(request, 'canvas/canvas.html', {'form': form})
+class TextCreate(LoginRequiredMixin, CreateView):
+    model = Text
+    fields = ['text']
+    template_name = 'canvas/canvas.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(TextCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('canvas:all')
