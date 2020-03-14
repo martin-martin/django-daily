@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+    <div class="evening stars">
     <div class="list-nav">
         <h1>Evening Pages</h1>
         <a href="{% url 'prompts:morning_list' %}">Morning Entries</a>
@@ -16,5 +16,5 @@
         <p>{{ evening_page.plan }}</p>
         <hr>
     {% endfor %}
-
+    </div>
 {% endblock %}
