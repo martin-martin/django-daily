@@ -1,4 +1,5 @@
 body {
+    font-family: 'Montserrat', sans-serif;
     max-width: 1200px;
     margin: auto;
 }
@@ -86,6 +87,10 @@ footer {
 .evening {
     color: white;
     padding: 40px;
+}
+
+.evening a {
+    color: white;
 }
 
 .morning {
