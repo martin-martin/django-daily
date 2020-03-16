@@ -96,3 +96,8 @@ footer {
 .morning {
     padding: 40px;
 }
+
+strong {
+    font-size: 1.2em;
+    font-weight: bolder;
+}
