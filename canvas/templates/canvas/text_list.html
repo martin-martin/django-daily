@@ -5,7 +5,7 @@
     <h1>750 Words Entries</h1>
     {% for words in object_list %}
         <p>{{ words.author }} - {{ words.pub_date }}</p>
-        <p>{{ words.text }}</p>
+        <p>{{ words.text|linebreaks }}</p>
         <hr>
     {% endfor %}
 

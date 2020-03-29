@@ -9,11 +9,11 @@
     {% for morning_page in object_list %}
         <p>{{ morning_page.pub_date }}</p>
         <p><strong>What would make today great?</strong></p>
-        <p>{{ morning_page.great }}</p>
+        <p>{{ morning_page.great|linebreaks }}</p>
         <p><strong>I am grateful for:</strong></p>
-        <p>{{ morning_page.grateful }}</p>
+        <p>{{ morning_page.grateful|linebreaks }}</p>
         <p><strong>Daily affirmations: I am...</strong></p>
-        <p>{{ morning_page.affirmation }}</p>
+        <p>{{ morning_page.affirmation|linebreaks }}</p>
         <hr>
     {% endfor %}
     </div>
