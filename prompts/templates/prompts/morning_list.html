@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <div class="morning">
     <div class="list-nav">
         <h1>🌤 Morning Pages</h1>
         <a href="{% url 'prompts:evening_list' %}">Evening Entries</a>
+        <a href="{% url 'prompts:evening' %}" class="icon-link">🌙</a>
+        <a href="{% url 'canvas:write' %}" class="icon-link">✏️</a>
     </div>
     {% for morning_page in object_list %}
         <p>{{ morning_page.pub_date }}</p>
@@ -17,4 +20,5 @@
         <hr>
     {% endfor %}
     </div>
+
 {% endblock %}

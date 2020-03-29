@@ -86,7 +86,7 @@ footer {
 
 .evening {
     color: white;
-    background-color: black;
+    background:#000 url(images/stars.png);
     padding: 40px;
 }
 
@@ -101,4 +101,8 @@ footer {
 strong {
     font-size: 1.2em;
     font-weight: bolder;
+}
+
+.icon-link {
+    text-decoration: none;
 }

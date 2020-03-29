@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <div class="stars">
     <div class="evening">
-
-        <h1>🌙 Evening Pages</h1>
+        <div class="list-nav">
+            <h1>🌙 Evening Pages</h1>
+            <a href="{% url 'prompts:evening_list' %}">evenings</a>
+            <a href="{% url 'prompts:morning_list' %}">mornings</a>
+            <a href="{% url 'prompts:morning' %}" class="icon-link">🌤</a>
+            <a href="{% url 'canvas:write' %}" class="icon-link">✏️</a>
+        </div>
 
         <form method="post">{% csrf_token %}
             {{ form.as_p }}
@@ -12,4 +18,5 @@
         </form>
     </div>
     </div>
+
 {% endblock %}
