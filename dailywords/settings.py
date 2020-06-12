@@ -22,7 +22,7 @@ else:
     SECRET_KEY = os.environ['DJANGO_KEY']  # fetches from heroku env vars
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['codecoder.xyz', 'www.codecoder.xyz']
 
 
 # Application definition
