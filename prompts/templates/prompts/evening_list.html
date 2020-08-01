@@ -8,6 +8,7 @@
         <h1>🌙 Evening Pages</h1>
         <a href="{% url 'prompts:morning_list' %}">Morning Entries</a>
         <a href="{% url 'prompts:morning' %}" class="icon-link">🌤</a>
+        <a href="{% url 'prompts:evening' %}" class="icon-link">🌙</a>
         <a href="{% url 'canvas:write' %}" class="icon-link">✏️</a>
     </div>
     {% for evening_page in object_list %}
