@@ -3,9 +3,9 @@
 {% block content %}
 
     <h1>750 Words Entries</h1>
-    {% for words in object_list %}
-        <p>{{ words.author }} - {{ words.pub_date }}</p>
-        <p>{{ words.text|linebreaks }}</p>
+    {% for text in text_list %}
+        <p>{{ text.author }} - {{ text.pub_date }}</p>
+        <p>{{ text.text|linebreaks }}</p>
         <hr>
     {% endfor %}
 

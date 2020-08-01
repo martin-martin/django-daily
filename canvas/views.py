@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from .models import Text
 
 
@@ -15,3 +15,13 @@ class TextCreate(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('canvas:all')
+
+
+class TextListView(LoginRequiredMixin, ListView):
+    """Displays all '750-words'-entries written by the logged-in user."""
+    model = Text
+    template_name = 'canvas/text_list.html'
+    context_object_name = 'text_list'
+
+    def get_queryset(self):
+        return Text.objects.filter(author=self.request.user)
