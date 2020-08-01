@@ -40,18 +40,18 @@ class CreateEveningView(CreateView):
 
 
 class ShowMorningList(ListView):
-    """Displays all morning entries written by logged-in user."""
+    """Displays the 7 most recent morning entries written by the logged-in user."""
     model = Morning
     template_name = 'prompts/morning_list.html'
 
     def get_queryset(self):
-        return Morning.objects.filter(author=self.request.user)
+        return Morning.objects.filter(author=self.request.user)[:7]
 
 
 class ShowEveningList(ListView):
-    """Displays all evening entries written by logged-in user."""
+    """Displays the 7 most recent evening entries written by the logged-in user."""
     model = Evening
     template_name = 'prompts/evening_list.html'
 
     def get_queryset(self):
-        return Evening.objects.filter(author=self.request.user)
+        return Evening.objects.filter(author=self.request.user)[:7]

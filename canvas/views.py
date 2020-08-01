@@ -18,10 +18,10 @@ class TextCreate(LoginRequiredMixin, CreateView):
 
 
 class TextListView(LoginRequiredMixin, ListView):
-    """Displays all '750-words'-entries written by the logged-in user."""
+    """Displays the 7 most recent '750-words'-entries written by the logged-in user."""
     model = Text
     template_name = 'canvas/text_list.html'
     context_object_name = 'text_list'
 
     def get_queryset(self):
-        return Text.objects.filter(author=self.request.user)
+        return Text.objects.filter(author=self.request.user)[:7]
