@@ -1,4 +1,4 @@
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from django.urls import reverse
 from .models import Morning, Evening
 
@@ -37,3 +37,21 @@ class CreateEveningView(CreateView):
 
     def get_success_url(self):
         return reverse('prompts:evening_list')
+
+
+class ShowMorningList(ListView):
+    """Displays all morning entries written by logged-in user."""
+    model = Morning
+    template_name = 'prompts/morning_list.html'
+
+    def get_queryset(self):
+        return Morning.objects.filter(author=self.request.user)
+
+
+class ShowEveningList(ListView):
+    """Displays all evening entries written by logged-in user."""
+    model = Evening
+    template_name = 'prompts/evening_list.html'
+
+    def get_queryset(self):
+        return Evening.objects.filter(author=self.request.user)
